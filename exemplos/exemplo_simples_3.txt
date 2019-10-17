@@ -1,0 +1,5 @@
+chopped-up
+healed
+staked
+un-staked
+burned

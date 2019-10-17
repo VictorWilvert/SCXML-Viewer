@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<scxml
+  xmlns="http://www.w3.org/2005/07/SCXML"
+  version="1.0" 
+  xmlns:somespace="http://stack.mera.com/CCXML"
+  initial="action1-state">
+
+  <state id="action1-state">
+    <transition event="act" target="action2-state"/>
+  </state>
+  <state id="action2-state">
+    <onentry>
+      <somespace:some-action/>
+    </onentry>
+    <transition event="act" target="action3-state"/>
+    <transition event="application.error" target="action2-error-handler"/>
+  </state>
+  <state id="action3-state">
+    <onentry>
+      <somespace:some-action/>
+    </onentry>
+    <transition event="act" target="action4-state"/>
+    <transition event="application.error" target="action3-error-handler"/>
+  </state>
+  <state id="action2-error-handler">
+    <onentry>
+      <somespace:handle-error/>
+    </onentry>
+    <transition event="hist" target="action2-state"/>
+  </state>
+  <state id="action3-error-handler">
+    <onentry>
+      <somespace:handle-error/>
+    </onentry>
+    <transition event="hist" target="action3-state"/>
+  </state>
+  <final id="action4-state"/>
+</scxml>

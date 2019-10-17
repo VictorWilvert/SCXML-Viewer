@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0">
+    <state id="exemplo">
+        <initial>
+            <transition event="transition" target="estado"/>
+        </initial>
+        <history id="history"/>
+        <state id="estado">
+            <transition event="transition" target="final"/>
+        </state>
+        <final id="final"/>
+    </state>
+</scxml>

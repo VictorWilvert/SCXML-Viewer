@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" datamodel="jexl" initial="flow">
+
+    <state id="flow">
+        
+        <initial>
+            
+            <transition target="phase1"/>
+            
+        </initial>
+
+        <history id="hist">
+
+            <transition target="phase1"/>
+
+        </history>
+
+        <state id="phase1">
+            <transition event="done.state.phase" target="phase2"/>
+        </state>
+
+        <state id="phase2">
+            
+            <transition event="done.state.phase" target="phase3"/>
+            
+        </state>
+
+        <final id="phase3"/>
+
+        <transition event="flow.pause" target="interrupted"/>
+
+        <transition event="flow.terminate" target="terminated"/>
+
+    </state>
+
+    <state id="interrupted">
+
+        <transition event="flow.resume" target="hist"/>
+
+        <transition event="flow.terminate" target="terminated"/>
+
+    </state>
+
+    <final id="terminated"/>
+
+</scxml>

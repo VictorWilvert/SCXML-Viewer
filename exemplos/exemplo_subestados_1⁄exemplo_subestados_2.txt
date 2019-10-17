@@ -1,0 +1,16 @@
+go there
+watch.stop
+watch.reset
+watch.start
+go there
+watch.stop
+watch.reset
+watch.start
+watch.stop
+go there
+watch.stop
+watch.reset
+watch.start
+watch.split
+watch.stop
+go there

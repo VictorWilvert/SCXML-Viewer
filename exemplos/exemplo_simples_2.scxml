@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<scxml>
+  
+  <datamodel>
+    <data id="interval" expr="0"/>
+    <data id="stop_t" expr="6"/>
+    <data id="warn_t" expr="2"/>
+    <data id="go_t" expr="8"/>
+  </datamodel>
+  
+  <state id="stop">
+    <transition event="tick" cond="interval != stop_t" target="stop">
+      <assign location="interval" expr="interval + 1" />
+    </transition>
+    <transition event="tock" cond="interval == stop_t" target="go">
+      <assign location="interval" expr="0" />
+      <script>
+        _event.lights.set('go');
+      </script>
+    </transition>
+  </state>
+  
+  <state id="warn">
+    <transition event="tick" cond="interval != warn_t" target="warn">
+      <assign location="interval" expr="interval + 1" />
+    </transition>
+    <transition event="tock" cond="interval == warn_t" target="stop">
+      <assign location="interval" expr="0" />
+      <script>
+        _event.lights.set('stop');
+      </script>
+    </transition>
+  </state>
+  
+  <state id="go">
+    <transition event="tick" cond="interval != go_t" target="go">
+      <assign location="interval" expr="interval + 1" />
+    </transition>
+    <transition event="tock" cond="interval == go_t" target="warn">
+      <assign location="interval" expr="0" />
+      <script>
+        _event.lights.set('warn');
+      </script>
+    </transition>
+  </state>
+  
+</scxml>

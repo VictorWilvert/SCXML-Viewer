@@ -1,0 +1,19 @@
+Programa LeitorScxml
+
+Para compilar o programa dirija-se ao diretorio LeitorScxml, no qual este arquivo deve estar presente, e deste mesmo diretorio e execute os seguintes:
+
+=> comandos no terminal:
+ qmake 
+ make
+=> para executar o programa:
+ make run
+=>ou:
+ ./LeitorScxml
+
+O executável a makefile e o .pro estaram presentes no mesmo diretorio
+
+o relatorio esta contido no diretorio relatorio
+
+para acessar ajuda sobre o programa acessar a aba de ajuda
+
+exemplo de diagramas e de lista de eventos presentes na pasta exemplos

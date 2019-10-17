@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" initial="running">
+    <state id="ready">
+        <transition event="watch.start" target="running"/>
+    </state>
+    <state id="running" initial="valido">
+        <initial>
+            <transition event="dont" target="terceiro"/>
+        </initial>
+        <initial>
+            <transition event="dont" target="invalido"/>
+        </initial>
+        <transition event="watch.split" target="invalido"/>
+        <transition event="watch.stop" target="terceiro"/>
+        <state id="valido"/>
+        <state id="invalido"/>
+        <state id="terceiro"/>
+        <transition event="go there" target="paused"/>
+    </state>
+    <state id="paused">
+        <transition event="watch.unsplit" target="running"/>
+        <transition event="watch.stop" target="stopped"/>
+    </state>
+    <state id="stopped">
+        <transition event="watch.reset" target="ready"/>
+    </state>
+</scxml>
